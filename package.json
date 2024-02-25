@@ -1,0 +1,30 @@
+{
+  "name": "mnt2",
+  "version": "1.0.0",
+  "description": "Anotador par torneos de marcha nordica",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development electron-forge start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "cross-env NODE_ENV=production electron-forge package",
+    "make": "cross-env NODE_ENV=production electron-forge make"
+  },
+  "author": "Portimagic",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.3.0",
+    "@electron-forge/maker-deb": "^7.3.0",
+    "@electron-forge/maker-rpm": "^7.3.0",
+    "@electron-forge/maker-squirrel": "^7.3.0",
+    "@electron-forge/maker-zip": "^7.3.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.3.0",
+    "@electron-forge/publisher-github": "^7.3.0",
+    "cross-env": "^7.0.3",
+    "electron": "^28.2.2"
+  },
+  "dependencies": {
+    "@electron-forge/plugin-fuses": "^7.3.0",
+    "bootstrap": "^5.3.2",
+    "electron-squirrel-startup": "^1.0.0"
+  }
+}

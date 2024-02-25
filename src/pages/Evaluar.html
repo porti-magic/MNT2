@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="es-ar" xmlns="http://www.w3.org/1999/xhtml" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8" />
+    <title>hello word</title>
+    <link rel="stylesheet" href="../css/base.css" />
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self', script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self', script-src 'self'">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="display-5">Evaluar - <span id="name"></span> - Juez <span id="juezID"></span> </h1>
+
+        <table class="col-12 table table-secondary">
+            <thead>
+                <tr>
+                    <th>Numero</th>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Faltas Leves</th>
+                    <th>Faltas Graves</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col-1 justify-content-end">
+                <button class="btn btn-primary" id="SiguienteBtn" type="button">Siguiente</button>
+            </div>
+
+            <div class="col-1 justify-content-end">
+                <button class="btn btn-secondary" id="TerminarBtn" type="button">Terminar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/Evaluar.js"></script>
+</body>
+</html>

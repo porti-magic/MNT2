@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="es-ar" xmlns="http://www.w3.org/1999/xhtml" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8" />
+    <title>hello word</title>
+    <link rel="stylesheet" href="../css/base.css" />
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self', script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self', script-src 'self'">
+</head>
+
+<body>
+    <div class="container">
+        <div hidden class="alert alert-danger" role="alert" id="saveFailed">
+            Error guardando el torneo
+        </div>
+        <h1 class="display-5">Nuevo torneo</h1>
+        <form class="row g-3 mt-2 needs-validation" id="NuevoTorneoForm">
+            <div class="col-2">
+                <label for="inputNombre" class="col-form-label">Nombre: </label>
+            </div>
+            <div class="col-10">
+                <input type="text" id="inputNombre" class="form-control" required aria-describedby="Nombre">
+                <div class="invalid-feedback">
+                    Ingrese un nombre
+                </div>
+            </div>
+
+            <div class="col-2">
+                <label for="inputfecha" class="col-form-label">Fecha: </label>
+            </div>
+            <div class="col-10">
+                <input type="date" id="inputFecha" class="form-control" aria-describedby="Fecha" required>
+                <div class="invalid-feedback">
+                    Ingrese una fecha
+                </div>
+            </div>
+
+            <div class="col-2">
+                <label for="inputParticipante" class="col-form-label">Participante: </label>
+            </div>
+            <div class="col-10">
+                <input class="form-control" type="file" id="inputParticipante" accept=".csv, .txt" required>
+                <div class="invalid-feedback">
+                    Ingrese un archivo valido
+                </div>
+            </div>
+
+            <table class="col-12 table table-secondary">
+                <thead>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Nombre</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <div class="col-11">
+                <div hidden class="alert alert-danger" role="alert" id="invalidFileAlert">
+                    Archivo invalido
+                </div>
+            </div>
+            <div class="col-1 justify-content-end">
+                <button class="btn btn-primary" id="GurdarBtn" type="button" disabled>Guardar</button>
+            </div>
+        </form>
+
+    </div>
+
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/CrearTorneo.js"></script>
+</body>
+</html>

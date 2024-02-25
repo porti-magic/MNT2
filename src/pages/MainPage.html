@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="es-ar" xmlns="http://www.w3.org/1999/xhtml" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8" />
+    <title>MNT</title>
+    <link rel="stylesheet" href="../css/base.css" />
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self', script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self', script-src 'self'">
+</head>
+
+<body>
+    <div class="container" hidden>
+        <div class="card text-center">
+            <div class="card-header">
+                Proximo torneo
+            </div>
+            <div class="card-body">
+                <h5 class="card-title" id="ProximoTorneoName">titulo del torneo</h5>
+                <p class="card-text" id="ProximoTorneoFecha">Descripcion del torneo</p>
+                <button id="ProximoTorneoEditar" class="btn btn-primary">Editar</button>
+            </div>
+            <div class="card-footer text-muted">
+                Faltan <span id="ProximoTorneoDiasRestantes"></span> días
+            </div>
+        </div>
+
+        <hr />
+
+        <h1 class="display-5">Eventos proximos</h1>
+
+        <table class="table table-secondary">
+            <thead>
+                <tr class="row">
+                    <th class="col-5">Nombre</th>
+                    <th class="col-5">Fecha</th>
+                    <th class="col-2"> </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h1 class="display-3">No hay Torneos proximos</h1>
+        <p>No hay ningun torneo creado para las proximas fechas. Para crear uno ve a Torneo > Crear</p>
+    </div>
+
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/MainPage.js"></script>
+</body>
+</html>
