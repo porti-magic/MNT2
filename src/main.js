@@ -6,36 +6,34 @@ const { GetNextTorneos } = require('./FilesUtilities.js')
 const { OpenMainPage } = require('./Navigation.js')
 
 const createWindow = () => {
-    const win = new BrowserWindow({
-        width: 800,
-        height: 600,
-        webPreferences: {
-            preload: path.resolve(__dirname, 'preload.js')
-        }
-    })
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload: path.resolve(__dirname, 'preload.js')
+    }
+  })
 
-    SetUpIpcMain(win);
+  SetUpIpcMain(win)
 
-    win.maximize()
-    var NextTorneos = GetNextTorneos(10)
-    OpenMainPage(win, NextTorneos)
-    SetMenu(win)
-
-    
+  win.maximize()
+  const NextTorneos = GetNextTorneos(10)
+  OpenMainPage(win, NextTorneos)
+  SetMenu(win)
 }
 
 app.whenReady().then(() => {
-    if (require('electron-squirrel-startup')) app.quit();
+  if (require('electron-squirrel-startup')) app.quit()
 
-    CreateDataFiles();
+  CreateDataFiles()
 
-    createWindow()
+  createWindow()
 
-    app.on('activate', () => {
-        if (BrowserWindow.getAllWindows().length === 0) createWindow()
-    })
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+  })
 })
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit()
+  if (process.platform !== 'darwin') app.quit()
 })
