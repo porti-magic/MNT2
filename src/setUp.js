@@ -1,8 +1,8 @@
 const fs = require('fs')
 const path = require('path')
 const { ipcMain, app } = require('electron')
-const { SaveTorneo, ReadFile, EditTorneo, GetTorneo } = require('./FilesUtilities.js')
-const { OpenEdit, OpenResults } = require('./Navigation.js')
+const { SaveTorneo, ReadFile, EditTorneo, GetTorneo, GetNextTorneos } = require('./FilesUtilities.js')
+const { OpenEdit, OpenResults, OpenMainPage } = require('./Navigation.js')
 
 function CreateDataFiles () {
   const basetPath = app.getPath('userData')
@@ -26,28 +26,18 @@ function CreateDataFiles () {
 
 function SetUpIpcMain (win) {
   ipcMain.on('SaveTorneo', (evet, data) => {
-    const saved = SaveTorneo(data)
-    if (!saved) {
-      OpenEdit(win, data).then(() => win.webContents.send('save-torneo', saved))
-    } else {
-      win.webContents.send('save-torneo', saved)
-    }
+    SaveTorneo(data)
+    OpenMainPage(win).then(() => win.webContents.send('saved-torneo', data))
   })
 
   ipcMain.on('EditTorneo', (evet, originalData, data) => {
-    const saved = EditTorneo(originalData, data)
-    if (!saved) {
-      OpenEdit(win, data).then(() => win.webContents.send('save-torneo', saved))
-    } else {
-      win.webContents.send('save-torneo', saved)
-    }
+    EditTorneo(originalData, data)
+    OpenMainPage(win).then(() => win.webContents.send('saved-torneo', data))
   })
 
   ipcMain.on('EvaluateTorneo', (evet, data) => {
-    const saved = SaveTorneo(data)
-    if (!saved) {
-      OpenResults(win, data)
-    }
+    SaveTorneo(data)
+    OpenResults(win, data)
   })
 
   ipcMain.on('OpenEditTorneo', (event, name) => {
@@ -58,6 +48,8 @@ function SetUpIpcMain (win) {
   ipcMain.handle('ReadFile', (event, path) => {
     return ReadFile(path)
   })
+
+  ipcMain.handle('GetNextTorneos', (event, amount) => { return GetNextTorneos(amount) })
 }
 
 module.exports = { CreateDataFiles, SetUpIpcMain }

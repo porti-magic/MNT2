@@ -15,9 +15,8 @@ function SaveTorneo (jsonData) {
   }
   const filePath = path.join(torneosDir, jsonData.name + '.json')
   const stringData = JSON.stringify(jsonData)
-  fs.writeFile(filePath, stringData, function (err) {
-    return err
-  })
+
+  fs.writeFileSync(filePath, stringData)
 
   const index = GetIndexData()
   index[jsonData.name] = jsonData.date

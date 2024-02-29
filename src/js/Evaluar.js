@@ -1,3 +1,7 @@
+import { addSpinner, deleteSpinner } from './spinner.js'
+
+const spinnerId = addSpinner(document.body)
+
 const nombreDelTorneoField = document.getElementById('name')
 const juezIdField = document.getElementById('juezID')
 const siguienteBtn = document.getElementById('SiguienteBtn')
@@ -17,6 +21,7 @@ window.ElectronAPI.onEvaluarTorneo((value, penalidadesJson) => {
   participants = value.participants
   penalidades = penalidadesJson
   CreateTable()
+  deleteSpinner(spinnerId)
 })
 
 window.onload = function () {

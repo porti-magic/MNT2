@@ -1,3 +1,7 @@
+import { addSpinner, deleteSpinner } from './spinner.js'
+
+const spinnerId = addSpinner(document.body)
+
 const nombreDelTorneoField = document.getElementById('name')
 
 let participants
@@ -6,6 +10,7 @@ window.ElectronAPI.onShowResults((value) => {
   nombreDelTorneoField.innerText = value.name
   participants = value.participants
   CreateTable()
+  deleteSpinner(spinnerId)
 })
 
 function CreateTable () {
