@@ -1,10 +1,13 @@
+import { addSpinner, deleteSpinner } from './spinner.js'
+
+const spinnerID = addSpinner(document.body)
+
 const form = document.getElementById('NuevoTorneoForm')
 const guardarBtn = document.getElementById('GurdarBtn')
 const nameInput = document.getElementById('inputNombre')
 const dateInput = document.getElementById('inputFecha')
 const participantsInput = document.getElementById('inputParticipante')
 const invalidFileAlert = document.getElementById('invalidFileAlert')
-const saveSucess = document.getElementById('saveSucess')
 let participants = []
 let originalName = ''
 
@@ -20,17 +23,12 @@ window.onload = function () {
   })
 }
 
-window.ElectronAPI.onSaveTorneo((value) => {
-  if (!value) {
-    saveSucess.hidden = false
-  }
-})
-
 window.ElectronAPI.onEditTorneo((value) => {
   nameInput.value = value.name
   dateInput.value = value.date
   CreateTable(value.participants)
   originalName = value.name
+  deleteSpinner(spinnerID)
 })
 
 function loadCSV (path) {
