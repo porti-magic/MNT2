@@ -1,1 +1,1 @@
-A basic desktop app for conting pont on'Marcha Nordica' tourements
+A basic desktop app for counting pont on 'Marcha Nordica' tourements
